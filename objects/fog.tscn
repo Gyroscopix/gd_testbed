@@ -1,13 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq6vkv7mtwpyt"]
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_dh30b"]
+[gd_scene load_steps=2 format=3 uid="uid://bq6vkv7mtwpyt"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_c77ui"]
-density = 1.1711
-albedo = Color(0.490196, 0.490196, 0.486275, 1)
+density = 0.3109
+albedo = Color(0.196078, 0.196078, 0.196078, 1)
 height_falloff = 1e-05
-edge_fade = 0.103526
-density_texture = SubResource("NoiseTexture3D_dh30b")
+edge_fade = 0.207052
 
 [node name="FogVolume" type="FogVolume"]
+transform = Transform3D(1567.11, 0, 0, 0, 207.942, 0, 0, 0, 1239.18, -0.69416, 0, 0)
 material = SubResource("FogMaterial_c77ui")

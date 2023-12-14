@@ -18,16 +18,10 @@ shader_parameter/pixels = 256.0
 [node name="main" type="Node3D"]
 
 [node name="FogVolume" parent="." instance=ExtResource("3_itj0g")]
+transform = Transform3D(2150.36, 0, 0, 0, 222.612, 0, 0, 0, 1491.66, 0.0127418, 0.00105476, 1.50557)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_wbyto")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0526496, 0.998613, 0, -0.998613, -0.0526496, 0.466699, 27.3635, -7.4574)
-light_color = Color(1, 0.858824, 0.831373, 1)
-light_energy = 0.238
-light_indirect_energy = 0.73
-shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("2_hl7dh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)
@@ -111,7 +105,28 @@ transform = Transform3D(-0.893907, -1.64072, -0.276428, -0.38612, 4.27485, 0.074
 transform = Transform3D(0.645949, 2.53328, 0.534701, -0.70633, 3.21874, 0.14791, -0.289564, -2.20029, 0.831996, 1.26796, 0.794037, -14.606)
 
 [node name="redmoon" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371037, 27.1835, -11.0008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149574, 6.40795, -9.08508)
+
+[node name="redmoon2" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, 1.19503, 5.19085, -9.08508)
+
+[node name="redmoon3" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, -1.41902, 7.77877, -9.08508)
+
+[node name="redmoon4" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, 1.22953, 7.77877, -10.1008)
+
+[node name="redmoon5" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, -0.327161, 4.14634, -8.77569)
+
+[node name="redmoon6" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, 0.404762, 4.9636, -9.42449)
+
+[node name="redmoon7" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, 2.36952, 9.02491, -9.42449)
+
+[node name="redmoon8" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, -1.62414, 5.15258, -10.8073)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_mfd83")
