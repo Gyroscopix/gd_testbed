@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b13e7et2803yf"]
+[gd_scene load_steps=10 format=3 uid="uid://b13e7et2803yf"]
 
 [ext_resource type="Script" path="res://objects/InteractRay.gd" id="1_wvy8q"]
 [ext_resource type="Texture2D" uid="uid://bolorjxcfvs7x" path="res://textures for tards/Untitled.png" id="2_2b7i6"]
@@ -61,6 +61,24 @@ albedo_color = Color(1, 0.835294, 0.8, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_li25q"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_bygyt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drhrf"]
+albedo_color = Color(1, 0.811765, 0.768627, 1)
+
+[sub_resource type="GDScript" id="GDScript_fhuvv"]
+script/source = "extends MeshInstance3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+		
+"
+
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = SubResource("GDScript_xv065")
@@ -74,6 +92,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ie85d")
 shape = SubResource("CapsuleShape3D_li25q")
 
 [node name="head" type="Node3D" parent="."]
+
+[node name="arm" type="MeshInstance3D" parent="head"]
+transform = Transform3D(0.123503, 0, 0, 0, 0.0900602, 0.456996, 0, -0.0752994, 0.546581, 0.340951, 0.170874, -0.312705)
+mesh = SubResource("BoxMesh_bygyt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_drhrf")
+script = SubResource("GDScript_fhuvv")
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759369, 0)

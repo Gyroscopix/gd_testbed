@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drpgl83fco11v"]
+[gd_scene load_steps=14 format=3 uid="uid://drpgl83fco11v"]
 
 [ext_resource type="PackedScene" uid="uid://ddxiolvua20bc" path="res://objects/block.tscn" id="1_764sx"]
 [ext_resource type="PackedScene" uid="uid://b13e7et2803yf" path="res://objects/player.tscn" id="2_hl7dh"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dk425i4y60o0b" path="res://icon.svg" id="7_8t28j"]
 [ext_resource type="PackedScene" uid="uid://celgqikjkyn7a" path="res://objects/music.tscn" id="8_l72qo"]
 [ext_resource type="PackedScene" uid="uid://db6avt1v6xe0e" path="res://objects/ground lmfao i wanna die.tscn" id="9_42ko6"]
+[ext_resource type="PackedScene" uid="uid://dghcgbx13hy8e" path="res://objects/INTERACTABLE THING.tscn" id="10_mkuy6"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="11_5itau"]
+[ext_resource type="Script" path="res://response.gd" id="11_aahaq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mfd83"]
 shader = ExtResource("6_nk50e")
@@ -17,15 +20,15 @@ shader_parameter/pixels = 256.0
 [node name="main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201672, -0.0992203, 0.0577316)
 
+[node name="player" parent="." instance=ExtResource("2_hl7dh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)
+
 [node name="FogVolume" parent="." instance=ExtResource("3_itj0g")]
 transform = Transform3D(101.839, 0, 0, 0, 63.228, 0, 0, 0, 389.388, 0.0127418, 0.00105476, 1.50557)
 size = Vector3(2, 1.57204, 2)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_wbyto")
-
-[node name="player" parent="." instance=ExtResource("2_hl7dh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)
 
 [node name="immobile terrain" type="Node3D" parent="."]
 
@@ -102,6 +105,7 @@ transform = Transform3D(-0.893907, -1.64072, -0.276428, -0.38612, 4.27485, 0.074
 transform = Transform3D(0.645949, 2.53328, 0.534701, -0.70633, 3.21874, 0.14791, -0.289564, -2.20029, 0.831996, 1.26796, 0.794037, -14.606)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_mfd83")
 position = Vector2(576, 324)
 scale = Vector2(9, 5.0625)
@@ -154,3 +158,20 @@ transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0
 
 [node name="StaticBody3D4" parent="." instance=ExtResource("9_42ko6")]
 transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0.0505395, -28.7048)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("11_5itau")
+
+[node name="response" type="Label" parent="CanvasLayer"]
+offset_left = 442.0
+offset_top = 165.0
+offset_right = 690.0
+offset_bottom = 223.0
+text = "FUCK OFF YOU'RE NOT 
+A FRIEND OF THE OCTOHEDRON"
+script = ExtResource("11_aahaq")
+
+[node name="blue box bro" parent="." instance=ExtResource("10_mkuy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15656, -9.58331)
+
+[connection signal="interacted" from="blue box bro" to="CanvasLayer" method="_on_blue_box_bro_interacted"]
