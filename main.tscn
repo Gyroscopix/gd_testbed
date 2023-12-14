@@ -144,7 +144,13 @@ transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, -2.2305,
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" parent="." instance=ExtResource("9_42ko6")]
-transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.32208, 0, 1.10214)
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0.0505395, 2.96062)
 
 [node name="StaticBody3D2" parent="." instance=ExtResource("9_42ko6")]
-transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.48662, 0.0388627, -8.97147)
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0.0505395, -7.63604)
+
+[node name="StaticBody3D3" parent="." instance=ExtResource("9_42ko6")]
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0.0505395, -18.2074)
+
+[node name="StaticBody3D4" parent="." instance=ExtResource("9_42ko6")]
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0.0505395, -28.7048)

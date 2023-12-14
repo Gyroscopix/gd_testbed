@@ -15,7 +15,7 @@ size = Vector3(2.00598, 1, 1)
 transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -0.486938, 0.0713453, -0.0319624)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.19241, 0, 0, 0, 0.0758193, 0, 0, 0, 5.30753, -0.00822562, 0, 0.00154604)
+transform = Transform3D(6.19242, 0, 0, 0, 0.0758193, 0, 0, 0, 5.30753, 0.0210674, 0, 0.00154604)
 mesh = SubResource("BoxMesh_f7vig")
 surface_material_override/0 = SubResource("StandardMaterial3D_71e3b")
 
