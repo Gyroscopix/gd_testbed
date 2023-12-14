@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://db6avt1v6xe0e"]
+
+[ext_resource type="Texture2D" uid="uid://7evt3bls3cxk" path="res://textures for tards/pine-needle-shiz.jpeg" id="1_02q34"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f7vig"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71e3b"]
+albedo_texture = ExtResource("1_02q34")
+albedo_texture_force_srgb = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_25hdr"]
+size = Vector3(2.00598, 1, 1)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -0.486938, 0.0713453, -0.0319624)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.19241, 0, 0, 0, 0.0758193, 0, 0, 0, 5.30753, -0.00822562, 0, 0.00154604)
+mesh = SubResource("BoxMesh_f7vig")
+surface_material_override/0 = SubResource("StandardMaterial3D_71e3b")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.19242, 0, 0, 0, 0.0758193, 0, 0, 0, 5.30753, 6.20977, 0, -0.0297149)
+mesh = SubResource("BoxMesh_f7vig")
+surface_material_override/0 = SubResource("StandardMaterial3D_71e3b")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.19242, 0, 0, 0, 0.0758193, 0, 0, 0, 5.30753, 6.17237, 0, -5.31242)
+mesh = SubResource("BoxMesh_f7vig")
+surface_material_override/0 = SubResource("StandardMaterial3D_71e3b")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.19242, 0, 0, 0, 0.0758193, 0, 0, 0, 5.30753, -0.00822562, 0, -5.30527)
+mesh = SubResource("BoxMesh_f7vig")
+surface_material_override/0 = SubResource("StandardMaterial3D_71e3b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(6.15584, 0, 0, 0, 0.145237, 0, 0, 0, 10.5828, 3.11289, 0, -2.64174)
+shape = SubResource("BoxShape3D_25hdr")

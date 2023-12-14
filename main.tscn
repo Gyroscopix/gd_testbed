@@ -8,17 +8,18 @@
 [ext_resource type="Shader" uid="uid://cqgil0ycjs16g" path="res://main.tres" id="6_nk50e"]
 [ext_resource type="Texture2D" uid="uid://dk425i4y60o0b" path="res://icon.svg" id="7_8t28j"]
 [ext_resource type="PackedScene" uid="uid://celgqikjkyn7a" path="res://objects/music.tscn" id="8_l72qo"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kt5b5"]
+[ext_resource type="PackedScene" uid="uid://db6avt1v6xe0e" path="res://objects/ground lmfao i wanna die.tscn" id="9_42ko6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mfd83"]
 shader = ExtResource("6_nk50e")
 shader_parameter/pixels = 256.0
 
 [node name="main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201672, -0.0992203, 0.0577316)
 
 [node name="FogVolume" parent="." instance=ExtResource("3_itj0g")]
-transform = Transform3D(2150.36, 0, 0, 0, 222.612, 0, 0, 0, 1491.66, 0.0127418, 0.00105476, 1.50557)
+transform = Transform3D(101.839, 0, 0, 0, 63.228, 0, 0, 0, 389.388, 0.0127418, 0.00105476, 1.50557)
+size = Vector3(2, 1.57204, 2)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_wbyto")
@@ -27,10 +28,6 @@ environment = ExtResource("4_wbyto")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)
 
 [node name="immobile terrain" type="Node3D" parent="."]
-
-[node name="block" parent="immobile terrain" instance=ExtResource("1_764sx")]
-transform = Transform3D(10.8712, 0, 0, 0, 0.157165, 0, 0, 0, 165.277, -0.0729094, 0, -0.126727)
-physics_material_override = SubResource("PhysicsMaterial_kt5b5")
 
 [node name="block2" parent="immobile terrain" instance=ExtResource("1_764sx")]
 transform = Transform3D(10.8542, 0, 0, 0, 6.25135, 0, 0, 0, 0.225361, -0.0915654, 0.531787, 5.30209)
@@ -104,30 +101,6 @@ transform = Transform3D(-0.893907, -1.64072, -0.276428, -0.38612, 4.27485, 0.074
 [node name="block20" parent="immobile terrain" instance=ExtResource("1_764sx")]
 transform = Transform3D(0.645949, 2.53328, 0.534701, -0.70633, 3.21874, 0.14791, -0.289564, -2.20029, 0.831996, 1.26796, 0.794037, -14.606)
 
-[node name="redmoon" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149574, 6.40795, -9.08508)
-
-[node name="redmoon2" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, 1.19503, 5.19085, -9.08508)
-
-[node name="redmoon3" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, -1.41902, 7.77877, -9.08508)
-
-[node name="redmoon4" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, 1.22953, 7.77877, -10.1008)
-
-[node name="redmoon5" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, -0.327161, 4.14634, -8.77569)
-
-[node name="redmoon6" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, 0.404762, 4.9636, -9.42449)
-
-[node name="redmoon7" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, 2.36952, 9.02491, -9.42449)
-
-[node name="redmoon8" parent="." instance=ExtResource("4_e8uoy")]
-transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, -1.62414, 5.15258, -10.8073)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_mfd83")
 position = Vector2(576, 324)
@@ -135,3 +108,43 @@ scale = Vector2(9, 5.0625)
 texture = ExtResource("7_8t28j")
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("8_l72qo")]
+
+[node name="borbs" type="Node3D" parent="."]
+
+[node name="redmoon" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.149574, 6.40795, -9.08508)
+skeleton = NodePath("../..")
+
+[node name="redmoon2" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, 1.19503, 5.19085, -9.08508)
+skeleton = NodePath("../..")
+
+[node name="redmoon3" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, -1.41902, 7.77877, -9.08508)
+skeleton = NodePath("../..")
+
+[node name="redmoon4" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, 1.22953, 7.77877, -10.1008)
+skeleton = NodePath("../..")
+
+[node name="redmoon5" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.308694, 0, 0, 0, 0.308694, 0, 0, 0, 0.308694, -0.327161, 4.14634, -8.77569)
+skeleton = NodePath("../..")
+
+[node name="redmoon6" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, 0.404762, 4.9636, -9.42449)
+skeleton = NodePath("../..")
+
+[node name="redmoon7" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, 2.36952, 9.02491, -9.42449)
+skeleton = NodePath("../..")
+
+[node name="redmoon8" parent="borbs" instance=ExtResource("4_e8uoy")]
+transform = Transform3D(0.179009, 0, 0, 0, 0.179009, 0, 0, 0, 0.179009, -2.2305, 4.94921, -10.8423)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("9_42ko6")]
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.32208, 0, 1.10214)
+
+[node name="StaticBody3D2" parent="." instance=ExtResource("9_42ko6")]
+transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.48662, 0.0388627, -8.97147)

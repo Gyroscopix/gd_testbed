@@ -47,4 +47,5 @@ KEY_D={
 
 [rendering]
 
+textures/canvas_textures/default_texture_repeat=1
 environment/defaults/default_environment="res://.godot/default_env_2.tres"
