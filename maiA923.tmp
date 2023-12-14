@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://drpgl83fco11v"]
+
+[ext_resource type="PackedScene" uid="uid://ddxiolvua20bc" path="res://objects/block.tscn" id="1_764sx"]
+[ext_resource type="PackedScene" uid="uid://b13e7et2803yf" path="res://objects/player.tscn" id="2_hl7dh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kt5b5"]
+
+[node name="main" type="Node3D"]
+
+[node name="block" parent="." instance=ExtResource("1_764sx")]
+transform = Transform3D(10.8712, 0, 0, 0, 0.157165, 0, 0, 0, 11.077, -0.0729094, 0, -0.126727)
+physics_material_override = SubResource("PhysicsMaterial_kt5b5")
+
+[node name="player" parent="." instance=ExtResource("2_hl7dh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)

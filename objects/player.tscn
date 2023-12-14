@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=3 uid="uid://b13e7et2803yf"]
+
+[sub_resource type="GDScript" id="GDScript_xv065"]
+script/source = "extends CharacterBody3D
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+var mouseSensibility = 200
+var mouse_relative_x = 0
+var mouse_relative_y = 0
+
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir = Input.get_vector(\"KEY_A\", \"KEY_D\", \"KEY_W\", \"KEY_S\")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotation.y -= event.relative.x / mouseSensibility
+		$head/Camera3D.rotation.x -= event.relative.y / mouseSensibility
+		$head/Camera3D.rotation.x = clamp($head/Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
+		mouse_relative_x = clamp(event.relative.x, -50, 50)
+		mouse_relative_y = clamp(event.relative.y, -50, 50)
+		
+		
+		
+"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w0sur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie85d"]
+albedo_color = Color(1, 0.835294, 0.8, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_li25q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bygyt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drhrf"]
+albedo_color = Color(1, 0.811765, 0.768627, 1)
+
+[sub_resource type="GDScript" id="GDScript_fhuvv"]
+script/source = "extends MeshInstance3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+		
+"
+
+[node name="player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = SubResource("GDScript_xv065")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102452, 0)
+mesh = SubResource("CapsuleMesh_w0sur")
+surface_material_override/0 = SubResource("StandardMaterial3D_ie85d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_li25q")
+
+[node name="head" type="Node3D" parent="."]
+
+[node name="arm" type="MeshInstance3D" parent="head"]
+transform = Transform3D(0.123503, 0, 0, 0, 0.0900602, 0.456996, 0, -0.0752994, 0.546581, 0.340951, 0.170874, -0.312705)
+mesh = SubResource("BoxMesh_bygyt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_drhrf")
+script = SubResource("GDScript_fhuvv")
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759369, 0)

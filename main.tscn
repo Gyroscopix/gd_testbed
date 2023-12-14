@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://drpgl83fco11v"]
+
+[ext_resource type="PackedScene" uid="uid://ddxiolvua20bc" path="res://objects/block.tscn" id="1_764sx"]
+[ext_resource type="PackedScene" uid="uid://b13e7et2803yf" path="res://objects/player.tscn" id="2_hl7dh"]
+[ext_resource type="PackedScene" uid="uid://bq6vkv7mtwpyt" path="res://objects/fog.tscn" id="3_itj0g"]
+[ext_resource type="PackedScene" uid="uid://dq3f5tr5q6jwh" path="res://objects/red moon.tscn" id="4_e8uoy"]
+[ext_resource type="Environment" path="res://.godot/default_env_2.tres" id="4_wbyto"]
+[ext_resource type="Shader" uid="uid://cqgil0ycjs16g" path="res://main.tres" id="6_nk50e"]
+[ext_resource type="Texture2D" uid="uid://dk425i4y60o0b" path="res://icon.svg" id="7_8t28j"]
+[ext_resource type="PackedScene" uid="uid://celgqikjkyn7a" path="res://objects/music.tscn" id="8_l72qo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kt5b5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mfd83"]
+shader = ExtResource("6_nk50e")
+shader_parameter/pixels = 256.0
+
+[node name="main" type="Node3D"]
+
+[node name="FogVolume" parent="." instance=ExtResource("3_itj0g")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_wbyto")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0526496, 0.998613, 0, -0.998613, -0.0526496, 0.466699, 27.3635, -7.4574)
+light_color = Color(1, 0.858824, 0.831373, 1)
+light_energy = 0.238
+light_indirect_energy = 0.73
+shadow_enabled = true
+
+[node name="player" parent="." instance=ExtResource("2_hl7dh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)
+
+[node name="immobile terrain" type="Node3D" parent="."]
+
+[node name="block" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(10.8712, 0, 0, 0, 0.157165, 0, 0, 0, 165.277, -0.0729094, 0, -0.126727)
+physics_material_override = SubResource("PhysicsMaterial_kt5b5")
+
+[node name="block2" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(10.8542, 0, 0, 0, 6.25135, 0, 0, 0, 0.225361, -0.0915654, 0.531787, 5.30209)
+
+[node name="block4" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-1.71663, 0, -0.201058, 0, 6.08295, 0, 216.639, 0, -0.00159317, 5.17206, 0.531787, -0.0538268)
+
+[node name="block5" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-1.59849, 0, -0.206764, 0, 6.08295, 0, 201.73, 0, -0.00163839, -5.49129, 0.531787, -0.0538268)
+
+[node name="root10" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.903692, -1.47948, 0.28652, -0.318259, 4.40229, 0.0476716, -0.286447, -0.22368, -0.956887, -2.89363, 0.0785825, -9.31446)
+
+[node name="block15" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.257744, 0.137052, 0.965764, -0.38612, 4.27485, 0.0749876, -0.885708, -1.82372, 0.24835, 2.45582, 1.24048, -6.24203)
+
+[node name="block19" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.645949, 2.53328, 0.534701, -0.70633, 3.21874, 0.14791, -0.289564, -2.20029, 0.831996, 1.26796, 0.794037, -14.606)
+
+[node name="root11" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.903692, -1.47948, 0.28652, -0.318259, 4.40229, 0.0476716, -0.286447, -0.22368, -0.956887, -2.89363, 0.0785825, -9.31446)
+
+[node name="block16" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.257744, 0.137052, 0.965764, -0.38612, 4.27485, 0.0749876, -0.885708, -1.82372, 0.24835, 2.45582, 1.24048, -6.24203)
+
+[node name="root12" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.946669, -1.48823, 0.0369895, -0.318259, 4.40229, 0.0476716, -0.05028, 0.155098, -0.998177, -2.6062, 5.92364, -8.54186)
+
+[node name="block21" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.55251, 1.89941, 0.726535, -0.70633, 3.21874, 0.14791, -0.442527, -2.76605, 0.671021, 0.0928793, 6.6391, -14.7091)
+
+[node name="block17" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.0270143, -0.325413, 0.997183, -0.38612, 4.27485, 0.0749876, -0.922053, -1.79968, -0.00218654, 3.34347, 7.08554, -6.91157)
+
+[node name="root13" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.914475, -1.36401, -0.278703, -0.318259, 4.40229, 0.0476716, 0.249893, 0.615119, -0.959193, -1.98457, 9.99889, -7.71219)
+
+[node name="block22" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.385368, 0.933482, 0.900658, -0.70633, 3.21874, 0.14791, -0.593792, -3.22295, 0.40858, -1.36125, 10.7143, -14.4152)
+
+[node name="block18" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.26424, -0.874714, 0.945932, -0.38612, 4.27485, 0.0749876, -0.883792, -1.60612, -0.31558, 4.17597, 11.1608, -8.03508)
+
+[node name="root14" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.832349, -1.18569, -0.492103, -0.318259, 4.40229, 0.0476716, 0.453769, 0.912701, -0.86923, -1.38446, 14.214, -7.25439)
+
+[node name="block23" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.238268, 0.166188, 0.970541, -0.70633, 3.21874, 0.14791, -0.666578, -3.35129, 0.190188, -2.32152, 14.9295, -13.9208)
+
+[node name="block24" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.460664, -1.22107, 0.847834, -0.38612, 4.27485, 0.0749876, -0.799187, -1.36151, -0.524934, 4.53614, 15.3759, -8.9873)
+
+[node name="root15" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.575312, -0.711061, -0.80351, -0.318259, 4.40229, 0.0476716, 0.753477, 1.31654, -0.593379, -0.0998724, 17.6989, -6.82052)
+
+[node name="block25" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.0539335, -1.2134, 0.96384, -0.70633, 3.21874, 0.14791, -0.705825, -3.12833, -0.221665, -3.67128, 18.4143, -12.527)
+
+[node name="block26" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.746265, -1.66979, 0.560463, -0.38612, 4.27485, 0.0749876, -0.542217, -0.746014, -0.824778, 4.60131, 18.8608, -10.8149)
+
+[node name="root16" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.212089, 0.558527, -0.969839, -0.318259, 4.40229, 0.0476716, 0.923975, 1.38814, 0.239037, 2.52376, 22.7901, -7.69852)
+
+[node name="block27" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.577448, -3.18185, 0.445259, -0.70633, 3.21874, 0.14791, -0.409452, -1.06518, -0.8831, -4.14799, 23.5055, -8.59686)
+
+[node name="block28" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(-0.893907, -1.64072, -0.276428, -0.38612, 4.27485, 0.0749876, 0.227685, 0.80795, -0.958105, 2.45439, 23.952, -13.8671)
+
+[node name="block20" parent="immobile terrain" instance=ExtResource("1_764sx")]
+transform = Transform3D(0.645949, 2.53328, 0.534701, -0.70633, 3.21874, 0.14791, -0.289564, -2.20029, 0.831996, 1.26796, 0.794037, -14.606)
+
+[node name="redmoon" parent="." instance=ExtResource("4_e8uoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.371037, 27.1835, -11.0008)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mfd83")
+position = Vector2(576, 324)
+scale = Vector2(9, 5.0625)
+texture = ExtResource("7_8t28j")
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("8_l72qo")]
