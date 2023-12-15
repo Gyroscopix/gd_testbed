@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dk425i4y60o0b" path="res://icon.svg" id="7_8t28j"]
 [ext_resource type="PackedScene" uid="uid://celgqikjkyn7a" path="res://objects/music.tscn" id="8_l72qo"]
 [ext_resource type="PackedScene" uid="uid://db6avt1v6xe0e" path="res://objects/ground lmfao i wanna die.tscn" id="9_42ko6"]
-[ext_resource type="PackedScene" uid="uid://cnmlh2065xgab" path="res://objects/INTERACTABLE THING.tscn" id="10_mkuy6"]
+[ext_resource type="PackedScene" uid="uid://cr7igwwypsurv" path="res://objects/INTERACTABLE THING.tscn" id="10_mkuy6"]
 [ext_resource type="Script" path="res://objects/CanvasLayer.gd" id="11_5itau"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_817ga"]
