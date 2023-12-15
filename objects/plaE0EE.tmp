@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b13e7et2803yf"]
 
 [ext_resource type="Script" path="res://objects/InteractRay.gd" id="1_wvy8q"]
-[ext_resource type="Texture2D" path="res://textures for tards/Untitled.png" id="2_2b7i6"]
+[ext_resource type="Texture2D" uid="uid://bolorjxcfvs7x" path="res://textures for tards/Untitled.png" id="2_2b7i6"]
 
 [sub_resource type="GDScript" id="GDScript_xv065"]
 script/source = "extends CharacterBody3D
@@ -49,7 +49,10 @@ func _input(event):
 	
 		mouse_relative_x = clamp(event.relative.x, -50, 50)
 		mouse_relative_y = clamp(event.relative.y, -50, 50)
-		
+
+func update_new_body(pass_text):
+	pass
+	
 		
 		
 "
@@ -84,17 +87,19 @@ target_position = Vector3(0, 0, -4)
 script = ExtResource("1_wvy8q")
 
 [node name="prompt" type="Label" parent="head/InteractRay"]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 22.0
-offset_right = 77.0
-offset_bottom = 84.0
+offset_left = -13.0
+offset_top = -79.0
+offset_right = -13.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
