@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://6jy4hng3lrfp"]
+
+[ext_resource type="Script" path="res://objects/friend_with_octohedron.gd" id="1_jajtm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fqvw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dshm2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2fd1"]
+albedo_color = Color(0, 1, 0.156863, 1)
+emission_enabled = true
+emission = Color(0, 0.537255, 0.486275, 1)
+emission_energy_multiplier = 16.0
+
+[node name="green bitch box" type="StaticBody3D"]
+script = ExtResource("1_jajtm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4fqvw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_dshm2")
+surface_material_override/0 = SubResource("StandardMaterial3D_f2fd1")

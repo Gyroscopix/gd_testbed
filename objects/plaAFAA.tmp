@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b13e7et2803yf"]
+[gd_scene load_steps=10 format=3 uid="uid://b13e7et2803yf"]
 
 [ext_resource type="Script" path="res://objects/InteractRay.gd" id="1_wvy8q"]
 [ext_resource type="Texture2D" uid="uid://bolorjxcfvs7x" path="res://textures for tards/Untitled.png" id="2_2b7i6"]
@@ -61,6 +61,24 @@ albedo_color = Color(1, 0.835294, 0.8, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_li25q"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_bygyt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drhrf"]
+albedo_color = Color(1, 0.811765, 0.768627, 1)
+
+[sub_resource type="GDScript" id="GDScript_fhuvv"]
+script/source = "extends MeshInstance3D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+		
+"
+
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = SubResource("GDScript_xv065")
@@ -75,6 +93,13 @@ shape = SubResource("CapsuleShape3D_li25q")
 
 [node name="head" type="Node3D" parent="."]
 
+[node name="arm" type="MeshInstance3D" parent="head"]
+transform = Transform3D(0.123503, 0, 0, 0, 0.0900602, 0.456996, 0, -0.0752994, 0.546581, 0.340951, 0.170874, -0.312705)
+mesh = SubResource("BoxMesh_bygyt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_drhrf")
+script = SubResource("GDScript_fhuvv")
+
 [node name="Camera3D" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759369, 0)
 
@@ -84,30 +109,26 @@ target_position = Vector3(0, 0, -4)
 script = ExtResource("1_wvy8q")
 
 [node name="prompt" type="Label" parent="head/InteractRay"]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 22.0
-offset_right = 77.0
-offset_bottom = 84.0
+offset_left = -13.0
+offset_top = -79.0
+offset_right = -13.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "I HATE WHITE PEOPLE"
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.5
-offset_top = -12.5
-offset_right = 12.5
-offset_bottom = 12.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 528.0
+offset_top = 292.0
+offset_right = 601.0
+offset_bottom = 359.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_2b7i6")
