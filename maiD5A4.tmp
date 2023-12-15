@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://drpgl83fco11v"]
+[gd_scene load_steps=14 format=3 uid="uid://drpgl83fco11v"]
 
 [ext_resource type="PackedScene" uid="uid://ddxiolvua20bc" path="res://objects/block.tscn" id="1_764sx"]
-[ext_resource type="Script" path="res://objects/textbox.gd" id="1_o3l1t"]
 [ext_resource type="PackedScene" uid="uid://b13e7et2803yf" path="res://objects/player.tscn" id="2_hl7dh"]
 [ext_resource type="PackedScene" uid="uid://bq6vkv7mtwpyt" path="res://objects/fog.tscn" id="3_itj0g"]
 [ext_resource type="PackedScene" uid="uid://dq3f5tr5q6jwh" path="res://objects/red moon.tscn" id="4_e8uoy"]
@@ -10,110 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://dk425i4y60o0b" path="res://icon.svg" id="7_8t28j"]
 [ext_resource type="PackedScene" uid="uid://celgqikjkyn7a" path="res://objects/music.tscn" id="8_l72qo"]
 [ext_resource type="PackedScene" uid="uid://db6avt1v6xe0e" path="res://objects/ground lmfao i wanna die.tscn" id="9_42ko6"]
-[ext_resource type="PackedScene" uid="uid://cnmlh2065xgab" path="res://objects/INTERACTABLE THING.tscn" id="10_mkuy6"]
-[ext_resource type="Script" path="res://objects/CanvasLayer.gd" id="11_5itau"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_817ga"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41wgs"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_a4vu7"]
-font_size = 32
-shadow_size = 12
-shadow_color = Color(0.227451, 0.643137, 0, 1)
+[ext_resource type="PackedScene" uid="uid://dghcgbx13hy8e" path="res://objects/INTERACTABLE THING.tscn" id="10_mkuy6"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="11_5itau"]
+[ext_resource type="Script" path="res://response.gd" id="11_aahaq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mfd83"]
 shader = ExtResource("6_nk50e")
 shader_parameter/pixels = 256.0
 
-[sub_resource type="GDScript" id="GDScript_ap3rr"]
-script/source = "extends Label
-
-@export var visiblee = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [node name="main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201672, -0.0992203, 0.0577316)
-
-[node name="textbox" type="CanvasLayer" parent="."]
-script = ExtResource("1_o3l1t")
-
-[node name="TextboxContainer" type="MarginContainer" parent="textbox"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 49.0
-offset_top = -187.0
-offset_right = -48.0
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Panel" type="Panel" parent="textbox/TextboxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_817ga")
-
-[node name="MarginContainer" type="MarginContainer" parent="textbox/TextboxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="Panel" type="Panel" parent="textbox/TextboxContainer/MarginContainer"]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_41wgs")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="textbox/TextboxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="start" type="Label" parent="textbox/TextboxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "*"
-label_settings = SubResource("LabelSettings_a4vu7")
-
-[node name="Label2" type="Label" parent="textbox/TextboxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 32
-text = "placeholder"
-label_settings = SubResource("LabelSettings_a4vu7")
-autowrap_mode = 1
-clip_text = true
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="end" type="Label" parent="textbox/TextboxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 32
-text = "*"
-label_settings = SubResource("LabelSettings_a4vu7")
 
 [node name="player" parent="." instance=ExtResource("2_hl7dh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0258136, 1.2209, 0.0264528)
@@ -254,18 +159,24 @@ transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0
 [node name="StaticBody3D4" parent="." instance=ExtResource("9_42ko6")]
 transform = Transform3D(1.00917, 0, 0, 0, 1.00917, 0, 0, 0, 1.00917, -3.03346, 0.0505395, -28.7048)
 
-[node name="blue box bro" parent="." instance=ExtResource("10_mkuy6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15656, -9.58331)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("11_5itau")
 
 [node name="response" type="Label" parent="CanvasLayer"]
-offset_left = 453.0
-offset_top = 403.0
-offset_right = 701.0
-offset_bottom = 461.0
-text = "The cube emits a faint glow."
-script = SubResource("GDScript_ap3rr")
+offset_left = 442.0
+offset_top = 165.0
+offset_right = 690.0
+offset_bottom = 223.0
+text = "FUCK OFF YOU'RE NOT A
+A FRIEND OF THE OCTOHEDRON"
+script = ExtResource("11_aahaq")
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+process_callback = 0
+wait_time = 3.0
+one_shot = true
+
+[node name="blue box bro" parent="." instance=ExtResource("10_mkuy6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15656, -9.58331)
 
 [connection signal="interacted" from="blue box bro" to="CanvasLayer" method="_on_blue_box_bro_interacted"]
